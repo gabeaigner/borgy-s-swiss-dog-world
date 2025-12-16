@@ -19,10 +19,10 @@ const StatItem = ({ icon, value, label }: StatItemProps) => (
 );
 
 const collaborators = [
-  { name: "Swiss Tourism", initials: "ST" },
-  { name: "Lindt", initials: "L" },
-  { name: "Swatch", initials: "SW" },
-  { name: "Toblerone", initials: "TB" },
+  { name: "Swiss Tourism" },
+  { name: "Lindt" },
+  { name: "Swatch" },
+  { name: "Toblerone" },
 ];
 
 const StatsBar = () => {
@@ -53,14 +53,13 @@ const StatsBar = () => {
             {/* Collaborators */}
             <div className="flex items-center gap-4">
               <span className="text-primary-foreground/60 text-sm uppercase tracking-wider">Recent Partners</span>
-              <div className="flex -space-x-2">
+              <div className="flex items-center gap-4">
                 {collaborators.map((collab) => (
                   <div
                     key={collab.name}
-                    className="w-10 h-10 rounded-full bg-card flex items-center justify-center border-2 border-primary/30 hover:scale-110 hover:z-10 transition-transform cursor-pointer"
-                    title={collab.name}
+                    className="px-4 py-2 rounded-lg bg-card/80 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-105 transition-all cursor-pointer"
                   >
-                    <span className="font-display font-bold text-xs text-foreground">{collab.initials}</span>
+                    <span className="font-display font-bold text-sm text-foreground whitespace-nowrap">{collab.name}</span>
                   </div>
                 ))}
               </div>

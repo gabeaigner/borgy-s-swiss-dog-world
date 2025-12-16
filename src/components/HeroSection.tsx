@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import StatsBar from "./StatsBar";
-import heroDog from "@/assets/hero-dog.jpg";
+import heroDog from "@/assets/hero-dog.png";
 
 const HeroSection = () => {
   return (
