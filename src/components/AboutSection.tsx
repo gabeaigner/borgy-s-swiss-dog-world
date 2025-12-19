@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 const videos = [
   {
@@ -22,41 +22,28 @@ const videos = [
     title: "A Day in Borgy's Life",
     thumbnail: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600&h=400&fit=crop",
   },
+  {
+    id: "dQw4w9WgXcQ",
+    title: "Mountain Adventures",
+    thumbnail: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=600&h=400&fit=crop",
+  },
 ];
 
 const AboutSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % videos.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
-  };
-
-  const getVisibleVideos = () => {
-    const result = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % videos.length;
-      result.push({ ...videos[index], originalIndex: index });
-    }
-    return result;
-  };
-
   return (
-    <section id="about" className="py-32 px-6 bg-secondary">
+    <section id="about" className="py-24 md:py-32 px-6 bg-secondary">
       <div className="max-w-7xl mx-auto">
         {/* About Content */}
-        <div className="grid lg:grid-cols-2 gap-20 items-start mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-24 md:mb-32">
           <div className="animate-fade-up">
             <div className="swiss-divider mb-6" />
-            <p className="text-muted-foreground text-xs uppercase tracking-[0.3em] mb-4">The Story</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-10">
+            <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium mb-3">The Story</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-8">
               Who is Borgy?
             </h2>
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
               <p>
                 Born in the heart of the Swiss Alps, Borgy isn't just any dog – he's a phenomenon. 
                 With his signature fluffy coat and impossibly photogenic expressions, he captured 
@@ -72,23 +59,23 @@ const AboutSection = () => {
           </div>
 
           {/* Stats Card */}
-          <div className="editorial-card p-10 animate-scale-in">
-            <div className="grid grid-cols-2 gap-px bg-border">
-              <div className="bg-card p-8 text-center">
-                <p className="font-display text-5xl text-foreground mb-2">2021</p>
-                <p className="text-muted-foreground text-xs uppercase tracking-[0.2em]">First Viral Post</p>
+          <div className="editorial-card p-8 md:p-10 animate-scale-in">
+            <div className="grid grid-cols-2 gap-px bg-border rounded-lg overflow-hidden">
+              <div className="bg-card p-6 md:p-8 text-center">
+                <p className="font-display text-4xl md:text-5xl text-foreground font-semibold mb-2">2021</p>
+                <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium">First Viral Post</p>
               </div>
-              <div className="bg-card p-8 text-center">
-                <p className="font-display text-5xl text-foreground mb-2">47</p>
-                <p className="text-muted-foreground text-xs uppercase tracking-[0.2em]">Countries Reached</p>
+              <div className="bg-card p-6 md:p-8 text-center">
+                <p className="font-display text-4xl md:text-5xl text-foreground font-semibold mb-2">47</p>
+                <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium">Countries Reached</p>
               </div>
-              <div className="bg-card p-8 text-center">
-                <p className="font-display text-5xl text-foreground mb-2">500K</p>
-                <p className="text-muted-foreground text-xs uppercase tracking-[0.2em]">Merch Sold</p>
+              <div className="bg-card p-6 md:p-8 text-center">
+                <p className="font-display text-4xl md:text-5xl text-foreground font-semibold mb-2">500K</p>
+                <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium">Merch Sold</p>
               </div>
-              <div className="bg-card p-8 text-center">
-                <p className="font-display text-5xl text-foreground mb-2">∞</p>
-                <p className="text-muted-foreground text-xs uppercase tracking-[0.2em]">Good Boy Points</p>
+              <div className="bg-card p-6 md:p-8 text-center">
+                <p className="font-display text-4xl md:text-5xl text-primary font-semibold mb-2">∞</p>
+                <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium">Good Boy Points</p>
               </div>
             </div>
           </div>
@@ -96,62 +83,53 @@ const AboutSection = () => {
 
         {/* Video Carousel */}
         <div>
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex items-end justify-between mb-10">
             <div>
               <div className="swiss-divider mb-6" />
-              <p className="text-muted-foreground text-xs uppercase tracking-[0.3em] mb-4">Watch</p>
+              <p className="text-muted-foreground text-xs uppercase tracking-wider font-medium mb-3">Watch</p>
               <h3 className="font-display text-3xl md:text-4xl text-foreground">Borgy's Adventures</h3>
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={prevSlide}
-                className="w-12 h-12 border border-border flex items-center justify-center hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-500"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="w-12 h-12 border border-border flex items-center justify-center hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-500"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {getVisibleVideos().map((video, index) => (
-              <div
-                key={`${video.originalIndex}-${index}`}
-                className="group relative aspect-video overflow-hidden cursor-pointer"
-                onClick={() => setPlayingVideo(video.id)}
-              >
-                {playingVideo === video.id ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
-                    className="absolute inset-0 w-full h-full"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
-                ) : (
-                  <>
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          {/* Horizontal Scrollable Videos */}
+          <div className="overflow-x-auto pb-4 -mx-6 px-6">
+            <div className="flex gap-6" style={{ width: 'max-content' }}>
+              {videos.map((video, index) => (
+                <div
+                  key={`${video.id}-${index}`}
+                  className="group relative w-80 md:w-96 aspect-video overflow-hidden rounded-xl cursor-pointer flex-shrink-0"
+                  onClick={() => setPlayingVideo(playingVideo === `${video.id}-${index}` ? null : `${video.id}-${index}`)}
+                >
+                  {playingVideo === `${video.id}-${index}` ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
                     />
-                    <div className="absolute inset-0 bg-foreground/20 group-hover:bg-foreground/30 transition-colors duration-500" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 border-2 border-primary-foreground flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-foreground transition-all duration-500">
-                        <Play className="w-5 h-5 text-primary-foreground group-hover:text-foreground ml-0.5" fill="currentColor" />
+                  ) : (
+                    <>
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-background/30 group-hover:bg-background/40 transition-colors duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                          <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <p className="font-display text-lg text-primary-foreground">{video.title}</p>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+                      <div className="absolute bottom-0 left-0 right-0 p-5">
+                        <div className="glass-card px-4 py-3 rounded-lg">
+                          <p className="font-display text-base text-foreground font-medium">{video.title}</p>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
