@@ -2,46 +2,51 @@ import { Instagram, Twitter, Youtube, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-foreground text-background py-20 px-6">
+    <footer id="contact" className="bg-card text-foreground py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
           {/* Brand */}
           <div className="md:col-span-2">
-            <span className="font-display text-3xl tracking-wide mb-6 block">BORGY</span>
-            <p className="text-background/60 max-w-sm mb-8 leading-relaxed">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-display font-bold text-lg">B</span>
+              </div>
+              <span className="font-display text-2xl font-semibold tracking-tight">BORGY</span>
+            </div>
+            <p className="text-muted-foreground max-w-sm mb-8 leading-relaxed">
               The original Swiss dog meme. A lifestyle icon spreading joy from the Alps to screens worldwide.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 border border-background/20 flex items-center justify-center hover:bg-background hover:text-foreground transition-all duration-500">
-                <Instagram className="w-4 h-4" />
+            <div className="flex gap-3">
+              <a href="#" className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300">
+                <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 border border-background/20 flex items-center justify-center hover:bg-background hover:text-foreground transition-all duration-500">
-                <Twitter className="w-4 h-4" />
+              <a href="#" className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 border border-background/20 flex items-center justify-center hover:bg-background hover:text-foreground transition-all duration-500">
-                <Youtube className="w-4 h-4" />
+              <a href="#" className="w-11 h-11 rounded-full bg-secondary border border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300">
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-background/50 mb-6">Navigation</h4>
+            <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground mb-6">Navigation</h4>
             <ul className="space-y-4">
-              <li><a href="#news" className="text-background/80 hover:text-background transition-colors duration-500">News</a></li>
-              <li><a href="#about" className="text-background/80 hover:text-background transition-colors duration-500">About</a></li>
-              <li><a href="#" className="text-background/80 hover:text-background transition-colors duration-500">Shop</a></li>
-              <li><a href="#" className="text-background/80 hover:text-background transition-colors duration-500">Press</a></li>
+              <li><a href="#news" className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">News</a></li>
+              <li><a href="#about" className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">About</a></li>
+              <li><a href="#" className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">Shop</a></li>
+              <li><a href="#" className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">Press</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs uppercase tracking-[0.2em] text-background/50 mb-6">Contact</h4>
-            <p className="text-background/60 mb-4 leading-relaxed">For collaborations and press inquiries</p>
+            <h4 className="text-xs uppercase tracking-wider font-medium text-muted-foreground mb-6">Contact</h4>
+            <p className="text-muted-foreground mb-4 leading-relaxed">For collaborations and press inquiries</p>
             <a
               href="mailto:hello@borgy.ch"
-              className="inline-flex items-center gap-2 text-background hover:text-primary transition-colors duration-500"
+              className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors duration-300 font-medium"
             >
               <Mail className="w-4 h-4" />
               hello@borgy.ch
@@ -50,14 +55,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/40 text-sm">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-muted-foreground text-sm">
             © 2024 Borgy. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm">
-            <a href="#" className="text-background/40 hover:text-background transition-colors duration-500">Privacy</a>
-            <a href="#" className="text-background/40 hover:text-background transition-colors duration-500">Terms</a>
-            <a href="#" className="text-background/40 hover:text-background transition-colors duration-500">Imprint</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300">Privacy</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300">Terms</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300">Imprint</a>
           </div>
         </div>
       </div>
