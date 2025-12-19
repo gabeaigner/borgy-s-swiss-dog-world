@@ -2,78 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Helvetica+Neue:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 160 20% 98%;
-    --foreground: 160 15% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 160 15% 10%;
+    --card: 0 0% 99%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 15% 10%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 165 85% 45%;
+    --primary: 152 45% 28%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 20% 94%;
-    --secondary-foreground: 160 15% 20%;
+    --secondary: 40 8% 95%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 160 15% 92%;
-    --muted-foreground: 160 10% 45%;
+    --muted: 40 5% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 175 80% 40%;
+    --accent: 152 35% 22%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 160 20% 88%;
-    --input: 160 20% 88%;
-    --ring: 165 85% 45%;
+    --border: 40 8% 88%;
+    --input: 40 8% 88%;
+    --ring: 152 45% 28%;
 
-    --radius: 1rem;
+    --radius: 0.25rem;
 
-    /* Custom tokens */
-    --hero-overlay: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
-    --card-shadow: 0 4px 24px -4px hsla(160, 20%, 20%, 0.12);
-    --card-shadow-hover: 0 12px 40px -8px hsla(160, 20%, 20%, 0.2);
-    --glow-primary: 0 0 60px hsla(165, 85%, 45%, 0.3);
+    /* Custom tokens - Swiss/Fashion aesthetic */
+    --hero-overlay: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    --card-shadow: 0 2px 16px -2px hsla(0, 0%, 0%, 0.06);
+    --card-shadow-hover: 0 8px 32px -4px hsla(0, 0%, 0%, 0.1);
+    --glow-primary: none;
 
-    --font-display: 'Outfit', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   .dark {
-    --background: 160 20% 8%;
-    --foreground: 160 15% 95%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
 
-    --card: 160 20% 12%;
-    --card-foreground: 160 15% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 160 20% 12%;
-    --popover-foreground: 160 15% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 165 85% 45%;
+    --primary: 152 45% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 20% 18%;
-    --secondary-foreground: 160 15% 90%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 160 20% 20%;
-    --muted-foreground: 160 10% 60%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 175 80% 40%;
+    --accent: 152 35% 40%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 35%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 160 20% 20%;
-    --input: 160 20% 20%;
-    --ring: 165 85% 45%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 152 45% 45%;
   }
 }
 
@@ -84,10 +84,13 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -97,7 +100,7 @@
   }
 
   .glass-card {
-    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    @apply bg-card/90 backdrop-blur-md border border-border/30;
     box-shadow: var(--card-shadow);
   }
 
@@ -106,25 +109,41 @@
   }
 
   .stat-glow {
-    box-shadow: var(--glow-primary);
+    box-shadow: none;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
-    background-size: 200% auto;
+    @apply text-primary;
   }
 
   .nav-link {
-    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-300;
+    @apply relative text-foreground/70 hover:text-foreground transition-colors duration-500;
+    letter-spacing: 0.15em;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-500;
   }
 
   .nav-link:hover::after {
     @apply w-full;
+  }
+
+  /* Swiss style divider */
+  .swiss-divider {
+    @apply w-12 h-px bg-primary;
+  }
+
+  /* Editorial card style */
+  .editorial-card {
+    @apply bg-card border border-border/50 transition-all duration-500;
+    box-shadow: var(--card-shadow);
+  }
+
+  .editorial-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    @apply border-border;
   }
 }
 

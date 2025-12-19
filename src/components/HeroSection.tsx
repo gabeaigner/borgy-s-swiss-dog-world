@@ -21,16 +21,17 @@ const HeroSection = () => {
       {/* Main Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 pb-32">
         <div className="text-center animate-fade-up">
-          <p className="text-primary font-medium text-lg mb-4 tracking-wider uppercase">
-            Meet Borgy
+          <div className="swiss-divider mx-auto mb-8" />
+          <p className="text-primary-foreground/80 font-body text-xs uppercase tracking-[0.3em] mb-6">
+            Switzerland's Most Beloved Icon
           </p>
-          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-tight mb-6">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.9] mb-8 tracking-tight">
             The First Swiss
             <br />
-            <span className="text-gradient">Dog Meme</span>
+            <span className="italic">Dog Meme</span>
           </h1>
-          <p className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto">
-            From the Alps to the internet. Making the world smile, one bark at a time.
+          <p className="text-primary-foreground/70 text-base md:text-lg max-w-lg mx-auto font-light leading-relaxed">
+            From the Alps to the world. A lifestyle icon making hearts smile, one moment at a time.
           </p>
         </div>
       </div>
