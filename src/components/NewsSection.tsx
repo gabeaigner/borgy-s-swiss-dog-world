@@ -12,28 +12,27 @@ interface NewsCardProps {
 
 const NewsCard = ({ image, title, date, index }: NewsCardProps) => (
   <article
-    className="group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer animate-fade-up"
+    className="group cursor-pointer animate-fade-up"
     style={{ animationDelay: `${index * 150}ms` }}
   >
-    {/* Background Image */}
-    <img
-      src={image}
-      alt={title}
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-    />
-    
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
+    {/* Image Container */}
+    <div className="relative overflow-hidden aspect-[3/4] mb-6">
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    </div>
     
     {/* Content */}
-    <div className="absolute bottom-0 left-0 right-0 p-6">
-      <p className="text-primary text-sm font-medium mb-2">{date}</p>
-      <h3 className="font-display font-bold text-xl text-primary-foreground group-hover:text-primary transition-colors">
+    <div>
+      <p className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-3">{date}</p>
+      <h3 className="font-display text-2xl text-foreground leading-tight group-hover:text-primary transition-colors duration-500">
         {title}
       </h3>
-      <div className="flex items-center gap-2 mt-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
-        <span className="text-primary-foreground text-sm">Read more</span>
-        <ArrowRight className="w-4 h-4 text-primary" />
+      <div className="flex items-center gap-2 mt-4 text-muted-foreground group-hover:text-foreground transition-colors duration-500">
+        <span className="text-xs uppercase tracking-[0.15em]">Read article</span>
+        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500" />
       </div>
     </div>
   </article>
@@ -59,27 +58,28 @@ const newsItems = [
 
 const NewsSection = () => {
   return (
-    <section id="news" className="py-24 px-6 bg-background">
+    <section id="news" className="py-32 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-16">
           <div>
-            <p className="text-primary font-medium text-sm uppercase tracking-wider mb-2">Latest Updates</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
-              Borgy News
+            <div className="swiss-divider mb-6" />
+            <p className="text-muted-foreground text-xs uppercase tracking-[0.3em] mb-4">Latest</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground">
+              News
             </h2>
           </div>
           <a
             href="#"
-            className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+            className="hidden md:flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-500 group"
           >
-            <span>View all news</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span className="text-xs uppercase tracking-[0.15em]">View all</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
           </a>
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {newsItems.map((item, index) => (
             <NewsCard key={item.title} {...item} index={index} />
           ))}

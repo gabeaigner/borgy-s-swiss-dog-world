@@ -1,20 +1,12 @@
-import { Users, Eye, Sparkles } from "lucide-react";
-
 interface StatItemProps {
-  icon: React.ReactNode;
   value: string;
   label: string;
 }
 
-const StatItem = ({ icon, value, label }: StatItemProps) => (
-  <div className="flex items-center gap-3">
-    <div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-      {icon}
-    </div>
-    <div>
-      <p className="font-display font-bold text-2xl text-primary-foreground">{value}</p>
-      <p className="text-primary-foreground/70 text-sm">{label}</p>
-    </div>
+const StatItem = ({ value, label }: StatItemProps) => (
+  <div className="text-center px-8 border-r border-primary-foreground/20 last:border-r-0">
+    <p className="font-display text-3xl md:text-4xl text-primary-foreground mb-1">{value}</p>
+    <p className="text-primary-foreground/60 text-xs uppercase tracking-[0.2em]">{label}</p>
   </div>
 );
 
@@ -28,39 +20,25 @@ const collaborators = [
 const StatsBar = () => {
   return (
     <div className="absolute bottom-0 left-0 right-0 z-20">
-      <div className="max-w-7xl mx-auto px-6 pb-8">
-        <div className="glass-card rounded-2xl p-6 bg-foreground/10 backdrop-blur-xl border border-primary-foreground/10">
-          <div className="flex flex-wrap items-center justify-between gap-8">
+      <div className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="glass-card p-8 bg-foreground/5 backdrop-blur-lg border-0">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Stats */}
-            <div className="flex flex-wrap gap-8">
-              <StatItem
-                icon={<Users className="w-5 h-5 text-primary" />}
-                value="2.4M"
-                label="Followers"
-              />
-              <StatItem
-                icon={<Eye className="w-5 h-5 text-primary" />}
-                value="150M+"
-                label="Total Views"
-              />
-              <StatItem
-                icon={<Sparkles className="w-5 h-5 text-primary" />}
-                value="50+"
-                label="Collaborations"
-              />
+            <div className="flex items-center">
+              <StatItem value="2.4M" label="Followers" />
+              <StatItem value="150M+" label="Views" />
+              <StatItem value="50+" label="Collabs" />
             </div>
 
             {/* Collaborators */}
-            <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/60 text-sm uppercase tracking-wider">Recent Partners</span>
-              <div className="flex items-center gap-4">
-                {collaborators.map((collab) => (
-                  <div
-                    key={collab.name}
-                    className="px-4 py-2 rounded-lg bg-card/80 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-105 transition-all cursor-pointer"
-                  >
-                    <span className="font-display font-bold text-sm text-foreground whitespace-nowrap">{collab.name}</span>
-                  </div>
+            <div className="flex items-center gap-6">
+              <span className="text-primary-foreground/50 text-xs uppercase tracking-[0.2em]">Partners</span>
+              <div className="flex items-center gap-1">
+                {collaborators.map((collab, index) => (
+                  <span key={collab.name} className="text-primary-foreground/80 text-sm font-light">
+                    {collab.name}
+                    {index < collaborators.length - 1 && <span className="mx-3 text-primary-foreground/30">·</span>}
+                  </span>
                 ))}
               </div>
             </div>
