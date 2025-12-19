@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Sora', 'sans-serif'],
-        body: ['Space Grotesk', 'sans-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
